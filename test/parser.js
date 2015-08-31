@@ -731,6 +731,17 @@ describe('support "ago" modifier (fixes: #20)', function (){
 
 });
 
+/**
+ * Multiple dates support
+ */
+
+describe('parse multiple dates', function () {
+  it('hours again', function () {
+    var dates = parse('Tuesday at 3pm or Friday at 7am or 11 am or Sunday at 9am', null, true);
+    console.log(JSON.stringify(dates, null, 2));
+  });
+});
+
 
 /**
  * Time helper function
