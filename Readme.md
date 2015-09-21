@@ -55,9 +55,12 @@ date('tomorrow at 15')
 
 ## API
 
-### date(str, [offset])
+### date(str, [offset, multi])
 
 Create a `Date` from a `str`. You may also supply an optional `offset` to the starting date. `offset` defaults to the current date and time.
+
+`multi` flag allows you to parse strings that contain multiple dates and makes parser to return an array of results.
+This feature is experimental and needs to be improved. However you can still use it if you want.
 
 ## Tests
 
