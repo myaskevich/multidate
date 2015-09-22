@@ -653,6 +653,24 @@ describe('months (fixes: #10)', function (){
     assert('1/2/13' == d(date));
   });
 
+  it('12 of January', function () {
+    var date = parse('12 of January 12:30', after);
+    assert('12:30:00' == t(date));
+    assert('1/12/13' == d(date));
+  });
+
+  it('January 21', function () {
+    var date = parse('January 21 12:30', after);
+    assert('12:30:00' == t(date));
+    assert('1/21/13' == d(date));
+  });
+
+  it('January 22th', function () {
+    var date = parse('January 22th 12:30', after);
+    assert('12:30:00' == t(date));
+    assert('1/22/13' == d(date));
+  });
+
   it('1st of March', function () {
     var date = parse('1st of March', after);
     assert('13:30:00' == t(date));
