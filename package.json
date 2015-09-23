@@ -1,6 +1,6 @@
 {
   "name": "date.js",
-  "version": "0.3.2.1",
+  "version": "0.3.2a1",
   "description": "dates for humans",
   "main": "index.js",
   "dependencies": {
