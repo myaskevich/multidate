@@ -772,16 +772,15 @@ describe('support "ago" modifier (fixes: #20)', function (){
 describe('parse multiple dates', function () {
   it('hours again', function () {
     var dates = parse('Tuesday at 3pm or Friday at 7am or 11 am or Sunday at 9am', mon, true);
-    var prettyDates = [];
 
-    for (var i = 0; i < dates.length; i++) {
-        prettyDates.push(d(dates[i]) + ' ' + t(dates[i]));
-    }
-
-    assert(prettyDates.indexOf('5/14/13 15:00:00') !== -1);
-    assert(prettyDates.indexOf('5/17/13 7:00:00') !== -1);
-    assert(prettyDates.indexOf('5/17/13 11:00:00') !== -1);
-    assert(prettyDates.indexOf('5/19/13 9:00:00') !== -1);
+    assert(d(dates[0]) === '5/14/13');
+    assert(t(dates[0]) === '15:00:00');
+    assert(d(dates[1]) === '5/17/13');
+    assert(t(dates[1]) === '7:00:00');
+    assert(d(dates[2]) === '5/17/13');
+    assert(t(dates[2]) === '11:00:00');
+    assert(d(dates[3]) === '5/19/13');
+    assert(t(dates[3]) === '9:00:00');
   });
 });
 
