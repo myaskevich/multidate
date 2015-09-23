@@ -705,6 +705,18 @@ describe('months (fixes: #10)', function (){
     assert('4:00:00' == t(date));
     assert('1/1/13' == d(date));
   })
+
+  it('January 4:00am', function(){
+    var date = parse('January 4:00am', after);
+    assert(d(date) === '1/13/13');
+    assert(t(date) === '4:00:00');
+  })
+
+  it('January', function(){
+    var date = parse('January', after);
+    assert(d(date) === '1/13/13');
+    assert(t(date) === '13:30:00');
+  })
 });
 
 /**
