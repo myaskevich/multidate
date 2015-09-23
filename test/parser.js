@@ -647,10 +647,18 @@ describe('parse context if its a string (fixes: #38)', function () {
 
 describe('months (fixes: #10)', function (){
   var after = new Date('May 13, 2013 13:30:00');
+  // future
   it('2nd of January', function () {
     var date = parse('2nd of January 12:30', after);
     assert('12:30:00' == t(date));
     assert('1/2/13' == d(date));
+  });
+
+  // past
+  it('19th of September', function () {
+    var date = parse('19th of September 12:30', after);
+    assert('12:30:00' == t(date));
+    assert('9/19/13' == d(date));
   });
 
   it('12 of January', function () {
@@ -659,10 +667,18 @@ describe('months (fixes: #10)', function (){
     assert('1/12/13' == d(date));
   });
 
+  // future
   it('January 21', function () {
     var date = parse('January 21 12:30', after);
     assert('12:30:00' == t(date));
     assert('1/21/13' == d(date));
+  });
+
+  // past
+  it('September 19', function () {
+    var date = parse('September 19 12:30', after);
+    assert('12:30:00' == t(date));
+    assert('9/19/13' == d(date));
   });
 
   it('January 22th', function () {
