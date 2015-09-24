@@ -675,9 +675,15 @@ describe('months (fixes: #10)', function (){
   });
 
   // past
-  it('September 19', function () {
+  it('September 19 12:30', function () {
     var date = parse('September 19 12:30', after);
     assert('12:30:00' == t(date));
+    assert('9/19/13' == d(date));
+  });
+
+  it('September 19', function () {
+    var date = parse('September 19', after);
+    assert('13:30:00' == t(date));
     assert('9/19/13' == d(date));
   });
 
