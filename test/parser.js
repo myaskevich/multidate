@@ -743,8 +743,8 @@ describe('months (fixes: #10)', function (){
     assert(t(date) === '4:00:00');
   })
 
-  it('January', function(){
-    var date = parse('January', after);
+  it('in January', function(){
+    var date = parse('in January', after);
     assert(d(date) === '1/13/13');
     assert(t(date) === '13:30:00');
   })
