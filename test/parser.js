@@ -437,7 +437,6 @@ describe('morning', function() {
   });
 })
 
-
 /**
  * Weekend
  */
@@ -459,6 +458,122 @@ describe('weekend', function () {
     date = parse('last week-end', mon);
     assert('1:30:00' == t(date));
     assert('5/11/13' == d(date));
+  });
+});
+
+/**
+ * Daytime
+ */
+describe('daytime', function () {
+  it('daytime', function () {
+    date = parse('daytime', mon);
+    assert('14:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+
+  it('daytime tomorrow morning at 10', function () {
+    date = parse('daytime tomorrow morning at 10', mon);
+    assert('10:00:00' == t(date));
+    assert('5/14/13' == d(date));
+  });
+
+  it('daytime this morning at 9', function () {
+    date = parse('daytime at 9', mon);
+    assert('9:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+});
+
+/**
+ * Breakfast
+ */
+describe('breakfast', function () {
+  it('breakfast', function () {
+    date = parse('breakfast', mon);
+    assert('8:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+
+  it('breakfast tomorrow morning at 10', function () {
+    date = parse('breakfast tomorrow morning at 10', mon);
+    assert('10:00:00' == t(date));
+    assert('5/14/13' == d(date));
+  });
+
+  it('breakfast this morning at 9', function () {
+    date = parse('breakfast at 9', mon);
+    assert('9:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+});
+
+/**
+ * Brunch
+ */
+describe('brunch', function () {
+  it('brunch', function () {
+    date = parse('brunch', mon);
+    assert('10:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+
+  it('brunch tomorrow morning at 11', function () {
+    date = parse('brunch tomorrow morning at 11', mon);
+    log(date);
+    assert('11:00:00' == t(date));
+    assert('5/14/13' == d(date));
+  });
+
+  it('brunch this morning at 11', function () {
+    date = parse('brunch at 11', mon);
+    assert('11:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+});
+
+/**
+ * Lunch
+ */
+describe('lunch', function () {
+  it('lunch', function () {
+    date = parse('lunch', mon);
+    assert('12:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+
+  it('lunch tomorrow at 13', function () {
+    date = parse('lunch tomorrow at 13', mon);
+    assert('13:00:00' == t(date));
+    assert('5/14/13' == d(date));
+  });
+
+  it('lunch this morning at 13', function () {
+    date = parse('lunch at 13', mon);
+    assert('13:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+});
+
+/**
+ * Dinner
+ */
+describe('dinner', function () {
+  it('dinner', function () {
+    date = parse('dinner', mon);
+    assert('17:00:00' == t(date));
+    assert('5/13/13' == d(date));
+  });
+
+  it('dinner tomorrow evening at 18', function () {
+    date = parse('dinner tomorrow evening at 18', mon);
+    assert('18:00:00' == t(date));
+    assert('5/14/13' == d(date));
+  });
+
+  it('dinner this evening at 18', function () {
+    date = parse('dinner this evening at 18', mon);
+    assert('18:00:00' == t(date));
+    assert('5/13/13' == d(date));
   });
 });
 
@@ -848,5 +963,17 @@ function d(date) {
   var day = date.getDate();
   var year = '' + date.getFullYear();
   return [month, day, year.slice(2)].join('/');
+}
+
+/**
+ * Date log helper
+ */
+function log(date) {
+  console.log();
+  console.log();
+  console.log(' >>>    date: ' + date);
+  console.log(' >>> d(date): ' + d(date));
+  console.log(' >>> t(date): ' + t(date));
+  console.log();
 }
 
