@@ -437,6 +437,31 @@ describe('morning', function() {
   });
 })
 
+
+/**
+ * Weekend
+ */
+describe('weekend', function () {
+  it('this weekend', function () {
+    var date = parse('week-end', mon);
+    assert('1:30:00' == t(date));
+    assert('5/18/13' == d(date));
+  });
+
+  it('nearest weekend from sunday', function () {
+    var sun = new Date('May 19, 2013 01:30:00');
+    date = parse('week-end', sun);
+    assert('1:30:00' == t(date));
+    assert('5/25/13' == d(date));
+  });
+
+  it('last week-end', function () {
+    date = parse('last week-end', mon);
+    assert('1:30:00' == t(date));
+    assert('5/11/13' == d(date));
+  });
+});
+
 /**
  * Months
  */
