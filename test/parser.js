@@ -940,6 +940,17 @@ describe('parse multiple dates', function () {
     assert(d(dates[3]) === '5/19/13');
     assert(t(dates[3]) === '9:00:00');
   });
+
+  it('months again', function () {
+    var dates = parse('October 15, November 17, December 19 at 5pm', mon, true);
+
+    assert(d(dates[0]) === '10/15/13');
+    assert(t(dates[0]) === '1:30:00');
+    assert(d(dates[1]) === '11/17/13');
+    assert(t(dates[1]) === '1:30:00');
+    assert(d(dates[2]) === '12/19/13');
+    assert(t(dates[2]) === '17:00:00');
+  });
 });
 
 
