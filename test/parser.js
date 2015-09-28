@@ -951,6 +951,15 @@ describe('parse multiple dates', function () {
     assert(d(dates[2]) === '12/19/13');
     assert(t(dates[2]) === '17:00:00');
   });
+
+  it('multiple days without time', function () {
+    var dates = parse('monday or tuesday', mon, true);
+
+    assert(d(dates[0]) === '5/13/13');
+    assert(t(dates[0]) === '1:30:00');
+    assert(d(dates[1]) === '5/14/13');
+    assert(t(dates[1]) === '1:30:00');
+  });
 });
 
 
