@@ -964,6 +964,26 @@ describe('parse multiple dates', function () {
 
 
 /**
+ * Parse real-world text
+ */
+describe('parse real-world examples', function () {
+  it('tomorrow at 9am or 9.30am at address location', function () {
+    var msg = 'Hi Maxim. Im testing the timeraven parser… I will ' +
+        'include the same text I wrote on the other email so we can ' +
+        'see. Can you meet tomorrow at 9:00 am or 9:30 am at The ' +
+        'Creamery, 685 4th St San Francisco, CA 94107?';
+
+    var dates = parse(msg, mon, true);
+
+    assert(d(dates[0]) === '5/14/13');
+    assert(t(dates[0]) === '9:00:00');
+    assert(d(dates[1]) === '5/14/13');
+    assert(t(dates[1]) === '9:30:00');
+  });
+});
+
+
+/**
  * Time helper function
  */
 
